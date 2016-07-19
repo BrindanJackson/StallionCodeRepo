@@ -1,37 +1,10 @@
-def mainGame(choice, gameStatus):
-    if int(choice) == 1:
+from hangmanClasses import Game
 
-        print('Game Start\n')
+newGame = Game()
 
-    elif int(choice) == 2:
+newGame.printMenu()
+newGame.printBoard()
 
-        print('Help Screen\n')
-
-    elif int(choice) == 3:
-
-        print('Game Closed\n')
-        gameStatus = 1
-
-    else:
-
-        print('Invalid Input. Please try again.\n')
-
-    return gameStatus
-
-gameFinished = 0
-
-while gameFinished == 0:
-    print('********************')
-    print('|Welcome to Hangman|')
-    print('|                  |')
-    print('| 1.) Play Hangman |')
-    print('| 2.) Help         |')
-    print('| 3.) Quit         |')
-    print('********************')
-
-    userChoice = input('User choice: ')
-
-    if userChoice != '1' and userChoice != '2' and userChoice != '3':
-        print('Invalid Input. Please try again.\n')
-    else:
-        gameFinished = mainGame(userChoice, gameFinished)
+for x in range(0,6):
+    newGame.numberMissed += 1
+    newGame.printBoard()
